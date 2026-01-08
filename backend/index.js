@@ -12,13 +12,6 @@ dotenv.config({});
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/",(req,res)=>{
-    return res.status(200).json({
-        message:"I am coming from backend check dude",
-        sucess : true
-    })
-})
-
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -28,6 +21,13 @@ const corsOptions = {
     credentials : true
 }
 app.use(cors(corsOptions));
+
+app.get("/",(req,res)=>{
+    return res.status(200).json({
+        message:"I am coming from backend check dude",
+        sucess : true
+    })
+})
 
 // api endpoints
 app.use('/api/v1/user',userRouter);

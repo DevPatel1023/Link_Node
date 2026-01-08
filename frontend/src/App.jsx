@@ -40,35 +40,35 @@ const browserRouter = createBrowserRouter([
         path: "/profile/:id",
         element: 
         <ProtectedRoute>
-        <Profile />,
+        <Profile />
       </ProtectedRoute>
       },
       {
         path: "/explore",
         element: 
         <ProtectedRoute>
-        <ExplorePostPage />,
+        <ExplorePostPage />
       </ProtectedRoute>
       },
       {
         path: "/search",
         element: 
         <ProtectedRoute>
-        <Search />,
+        <Search />
       </ProtectedRoute>
       },
       {
         path: "/notifications",
         element: 
         <ProtectedRoute>
-        <Notification />,
+        <Notification />
       </ProtectedRoute>
       },
       {
         path: "/profile/edit",
         element: 
         <ProtectedRoute>
-        <EditProfile />,
+        <EditProfile />
       </ProtectedRoute>
       },
       {

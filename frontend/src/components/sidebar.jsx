@@ -106,14 +106,14 @@ const Sidebar = () => {
     },
     {
       icon: (
-        <Avatar className="w-6 h-6">
+        <Avatar className="w-6 h-6 border-2 border-white bg-black">
           <AvatarImage
             src={user?.profilePicture}
             className="w-6 h-6"
             alt="profilepic"
           />
           <AvatarFallback>
-            <User size={16} />
+            <User size={16} className="bg-black"/>
           </AvatarFallback>
         </Avatar>
       ),
@@ -130,11 +130,10 @@ const Sidebar = () => {
   };
 
   const getBaseClasses = (item) => {
-    return `group flex items-center px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200 w-full ${
-      item.type === "link" && isActiveLink(item.link)
-        ? "bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600 shadow-sm"
+    return `group flex items-center px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200 w-full ${item.type === "link" && isActiveLink(item.link)
+        ? "bg-blue-300 text-white shadow-sm"
         : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-    }`;
+      }`;
   };
 
   return (
@@ -167,11 +166,10 @@ const Sidebar = () => {
                   <div key={index} className="relative">
                     <Link to={item.link} className={baseClasses}>
                       <span
-                        className={`flex-shrink-0 transition-colors duration-200 ${
-                          isActiveLink(item.link)
-                            ? "text-purple-600"
+                        className={`flex-shrink-0 transition-colors duration-200 ${isActiveLink(item.link)
+                            ? "text-white"
                             : "text-gray-500"
-                        }`}
+                          }`}
                       >
                         {item.icon}
                       </span>
@@ -179,7 +177,7 @@ const Sidebar = () => {
                         {item.text}
                       </span>
                       {isActiveLink(item.link) && (
-                        <div className="ml-auto w-2 h-2 bg-purple-600 rounded-full hidden lg:block" />
+                        <div className="ml-auto w-2 h-2 bg-gray-600 rounded-full hidden lg:block" />
                       )}
                     </Link>
 
@@ -201,11 +199,10 @@ const Sidebar = () => {
               return (
                 <Link key={index} to={item.link} className={baseClasses}>
                   <span
-                    className={`flex-shrink-0 transition-colors duration-200 ${
-                      isActiveLink(item.link)
-                        ? "text-purple-600"
+                    className={`flex-shrink-0 transition-colors duration-200 ${isActiveLink(item.link)
+                        ? "text-white"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   >
                     {item.icon}
                   </span>
@@ -213,7 +210,7 @@ const Sidebar = () => {
                     {item.text}
                   </span>
                   {isActiveLink(item.link) && (
-                    <div className="ml-auto w-2 h-2 bg-purple-600 rounded-full hidden lg:block" />
+                    <div className="ml-auto w-2 h-2 bg-blue-700 rounded-full hidden lg:block" />
                   )}
                 </Link>
               );
@@ -257,11 +254,10 @@ const Sidebar = () => {
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-30 px-2 py-2 shadow-lg">
         <div className="flex justify-around items-center max-w-md mx-auto">
           {navItems.slice(0, 5).map((item, index) => {
-            const baseClasses = `flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 relative ${
-              item.type === "link" && isActiveLink(item.link)
+            const baseClasses = `flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 relative ${item.type === "link" && isActiveLink(item.link)
                 ? "text-purple-600"
                 : "text-gray-500 hover:text-gray-700"
-            }`;
+              }`;
 
             if (item.type === "link") {
               return (
@@ -271,7 +267,7 @@ const Sidebar = () => {
                     {item.text}
                   </span>
                   {isActiveLink(item.link) && (
-                    <div className="absolute -top-1 w-1 h-1 bg-purple-600 rounded-full" />
+                    <div className="absolute -top-1 w-1 h-1 bg-gray-600 rounded-full" />
                   )}
                   {/* Mobile notification badge */}
                   {item.isNotification && hasUnreadLikeNotification && (
@@ -298,11 +294,10 @@ const Sidebar = () => {
           })}
           <Link
             to={`/profile/${user._id}`}
-            className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 ${
-              isActiveLink(`/profile/${user._id}`)
-                ? "text-purple-600"
+            className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 ${isActiveLink(`/profile/${user._id}`)
+                ? "text-gray-600"
                 : "text-gray-500 hover:text-gray-700"
-            }`}
+              }`}
           >
             <span className="mb-1 scale-90">
               <Avatar className="w-6 h-6">
@@ -318,7 +313,7 @@ const Sidebar = () => {
             </span>
             <span className="text-xs font-medium leading-none">Profile</span>
             {isActiveLink(`/profile/${user._id}`) && (
-              <div className="absolute -top-1 w-1 h-1 bg-purple-600 rounded-full" />
+              <div className="absolute -top-1 w-1 h-1 bg-white rounded-full" />
             )}
           </Link>
         </div>
